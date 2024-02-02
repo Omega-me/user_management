@@ -1,0 +1,14 @@
+:root {
+    --blue: #3C81FC;
+    --blue-hover: #3673dd;
+    --grey: #CCD2E3;
+    --light-grey: #F4F7FB;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}

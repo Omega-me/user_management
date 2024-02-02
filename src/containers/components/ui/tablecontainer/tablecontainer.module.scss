@@ -1,0 +1,30 @@
+.tablecontainer {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  .tablecontainer_addbtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .table {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    display: table;
+    .table_row {
+      display: table-row;
+    }
+
+    .table_title {
+      display: table-cell;
+    }
+    .table_title__right {
+      width: 100px;
+    }
+
+    .table_cell {
+      display: table-cell;
+      border: 1px solid #ccc;
+    }
+  }
+}

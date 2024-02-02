@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  background: var(--blue);
+  border-radius: 5px;
+  padding: 13px 12px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 14.06px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:active {
+    background: var(--blue-hover);
+  }
+}

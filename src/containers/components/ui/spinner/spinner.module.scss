@@ -1,0 +1,33 @@
+.spinner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: spinner-animation-1 0.5s backwards, spinner-animation-2 1.25s 0.5s infinite ease;
+    border: 5.6px solid var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 -33.6px 0 -5.6px var(--blue);
+    position: absolute;
+  }
+
+  &::after {
+    animation-delay: 0s, 1.25s;
+  }
+}
+
+@keyframes spinner-animation-1 {
+  from {
+    box-shadow: 0 0 0 -5.6px var(--blue);
+  }
+}
+
+@keyframes spinner-animation-2 {
+  to {
+    transform: rotate(360deg);
+  }
+}
