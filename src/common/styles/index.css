@@ -1,8 +1,10 @@
 :root {
     --blue: #3C81FC;
-    --blue-hover: #3673dd;
+    --blue-hover: #5d97fa;
     --grey: #CCD2E3;
     --light-grey: #F4F7FB;
+    --border:#E7EAF3;
+    --text-color:#4E5964;
 }
 *{
     margin: 0;

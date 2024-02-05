@@ -80,3 +80,16 @@ export const generatUrlAndKeys = <TData>(opts: {
     hasErrorHandling,
   };
 };
+
+/**
+ *
+ * @param config
+ * @returns
+ */
+export const arraysToObjectMapper = (config: { keys: string[]; values: Array<string | number> }) => {
+  const object = config.keys.reduce((obj: any, key: string, index: number) => {
+    obj[key] = config.values[index];
+    return obj;
+  }, {});
+  return object;
+};
