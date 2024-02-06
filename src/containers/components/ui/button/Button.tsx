@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = props => {
   return (
-    <button onClick={props.onClick} style={{ width: props?.width, height: props?.height, fontSize: props.fontSize }} className={s.button}>
+    <button {...props} onClick={props.onClick} style={{ width: props?.width, height: props?.height, fontSize: props.fontSize }} className={s.button}>
       {props.icon && props.icon}
       {props.children}
     </button>

@@ -26,9 +26,8 @@ export const generatUrlAndKeys = <TData>(opts: {
   if (opts.isMuatation) {
     methode = eHttpMethod.POST;
     const mutationConfig = opts.config as IMutationOpts<TData>;
-    if (mutationConfig?.queryConfig?.hasInvalidation === false) {
-      hasInvalidation = false;
-    }
+    hasInvalidation = !!mutationConfig?.queryConfig?.hasInvalidation;
+
     if (mutationConfig?.queryConfig?.hasErrorHandling === false) {
       hasErrorHandling = false;
     }
@@ -92,4 +91,23 @@ export const arraysToObjectMapper = (config: { keys: string[]; values: Array<str
     return obj;
   }, {});
   return object;
+};
+
+/**
+ *
+ * @param obj
+ * @param key
+ * @returns
+ */
+export const getValueByChainedKeys = (obj: any, key: string) => {
+  const keys = key.split('.');
+  let value = obj;
+  for (const k of keys) {
+    if (value && typeof value === 'object' && k in value) {
+      value = value[k];
+    } else {
+      return undefined;
+    }
+  }
+  return value;
 };

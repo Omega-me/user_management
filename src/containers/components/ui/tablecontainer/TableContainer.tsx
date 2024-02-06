@@ -14,7 +14,9 @@ const TableContainer: React.FC<TableContainerProps> = ({ config }) => {
   return (
     <div className={s.tablecontainer}>
       <div className={s.tablecontainer_addbtn}>
-        <Button icon={<Plus width="16" height="16" />}>{LABELS.CREATE_NEW_USER}</Button>
+        <Button fontSize="14px" onClick={config.onNew} icon={<Plus width="16" height="16" />}>
+          {LABELS.CREATE_NEW_USER}
+        </Button>
       </div>
       <table className={s.table}>
         <thead>

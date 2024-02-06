@@ -1,0 +1,48 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .form_left {
+    width: 100%;
+    margin-right: 20px;
+  }
+  .form_right {
+    width: 100%;
+    margin-left: 20px;
+    .coordinates {
+      display: flex;
+      justify-content: space-between;
+
+      .input_field__lat {
+        width: 100%;
+        margin-right: 10px;
+      }
+
+      .input_field__lng {
+        width: 100%;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .input_field {
+    margin-bottom: 10px;
+  }
+
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+    .form_left {
+      margin-right: 0;
+    }
+    .form_right {
+      margin-left: 0;
+    }
+  }
+}
+
+.nouser_loading {
+  width: 100%;
+  height: 300px;
+  display: grid;
+  place-items: center;
+}

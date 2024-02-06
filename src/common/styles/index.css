@@ -5,6 +5,10 @@
     --light-grey: #F4F7FB;
     --border:#E7EAF3;
     --text-color:#4E5964;
+    --success:#22bb33;
+    --danger:#da1e28;
+    --warning:#f1c21b;
+    --input-color:#C4C4C4;
 }
 *{
     margin: 0;

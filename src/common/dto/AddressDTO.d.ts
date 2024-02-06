@@ -6,6 +6,6 @@ export interface AddressDTO {
 }
 
 export interface GeoDTO {
-  lat: string;
-  lng: string;
+  lat?: number;
+  lng?: number;
 }

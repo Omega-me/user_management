@@ -7,7 +7,8 @@ export interface UserDTO {
   email: string;
   address: AddressDTO;
   phone: string;
+  gooleLoc?: boolean;
 }
 
-export interface CreateUserDTO extends Omit<UserDTO, 'id'> {}
+export interface CreateUserDTO extends Omit<UserDTO, 'id' | 'gooleLoc'> {}
 export interface UpdateUserDTO extends Partial<CreateUserDTO> {}
