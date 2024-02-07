@@ -155,6 +155,8 @@ const HomeModule = () => {
       onSubmit={onSubmit}
       register={register}
       watch={watch}
+      setValue={setValue}
+      getValues={getValues}
     />
   );
 };

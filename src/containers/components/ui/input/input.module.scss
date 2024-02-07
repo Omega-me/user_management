@@ -1,5 +1,6 @@
 .input {
   width: 100%;
+  position: relative;
 
   .input_label {
     display: flex;
@@ -84,6 +85,29 @@
       font-weight: 400;
       color: var(--input-color);
     }
+
+    &::-webkit-search-cancel-button {
+      position: relative;
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: var(--light-grey);
+      cursor: pointer;
+      background-image: url('../../../../assets/icons/x.svg');
+      background-position: center center;
+    }
+
+    &::-ms-clear {
+      position: relative;
+      height: 20px;
+      width: 20px;
+      border-radius: 10px;
+      background: var(--light-grey);
+      cursor: pointer;
+      background-image: url('../../../../assets/icons/x.svg');
+      background-position: center center;
+    }
   }
 
   .input_field__error {
@@ -96,5 +120,29 @@
   .input_error {
     font-size: 12px;
     color: var(--danger);
+  }
+
+  .clear_input {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-10%);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  .input_autocomplete {
+    width: 100%;
+    height: 200px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    position: absolute;
+    z-index: 2;
+    padding: 20px;
   }
 }

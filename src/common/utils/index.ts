@@ -99,7 +99,7 @@ export const arraysToObjectMapper = (config: { keys: string[]; values: Array<str
  * @param key
  * @returns
  */
-export const getValueByChainedKeys = (obj: any, key: string) => {
+export const getValueByChainedKeys = (obj: any, key: string): { type: string; message: '' } | undefined => {
   const keys = key.split('.');
   let value = obj;
   for (const k of keys) {

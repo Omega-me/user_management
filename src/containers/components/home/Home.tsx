@@ -1,7 +1,7 @@
 import { Input, Modal, Spinner, TableContainer } from '..';
 import { eActionType } from '@/common/enums';
 import { RowDTO, UserDTO } from '@/common/dto';
-import { FieldErrors, UseFormRegister, UseFormWatch } from 'react-hook-form';
+import { FieldErrors, UseFormGetValues, UseFormRegister, UseFormSetValue, UseFormWatch } from 'react-hook-form';
 import s from './home.module.scss';
 
 interface HomeProps {
@@ -21,6 +21,8 @@ interface HomeProps {
   register: UseFormRegister<UserDTO>;
   onSubmit: (e?: React.BaseSyntheticEvent<UserDTO, any, any> | undefined) => Promise<void>;
   watch: UseFormWatch<UserDTO>;
+  setValue: UseFormSetValue<UserDTO>;
+  getValues: UseFormGetValues<UserDTO>;
   errors: FieldErrors<UserDTO>;
 }
 
@@ -79,7 +81,7 @@ const Home: React.FC<HomeProps> = props => {
                     label="Full Name"
                     name="name"
                     placeholder="Enter full name"
-                    required={true}
+                    required={'Full name is required'}
                     register={props.register}
                     errors={props.errors}
                   />
@@ -90,7 +92,7 @@ const Home: React.FC<HomeProps> = props => {
                     label="Username"
                     name="username"
                     placeholder="Enter username"
-                    required={true}
+                    required={'Username is required'}
                     register={props.register}
                     errors={props.errors}
                   />
@@ -102,9 +104,15 @@ const Home: React.FC<HomeProps> = props => {
                     label="Email"
                     name="email"
                     placeholder="Enter email address"
-                    required={true}
                     register={props.register}
                     errors={props.errors}
+                    required={'Email address is required'}
+                    options={{
+                      pattern: {
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: 'Invalid email, use format (email@domain.com)',
+                      },
+                    }}
                   />
                 </div>
                 <div className={s.input_field}>
@@ -113,9 +121,16 @@ const Home: React.FC<HomeProps> = props => {
                     label="Phone Nr"
                     name="phone"
                     placeholder="Enter phone number"
-                    required={true}
                     register={props.register}
                     errors={props.errors}
+                    required={'Phone number is required'}
+                    type="phone"
+                    options={{
+                      pattern: {
+                        value: /[1-9]{1}[0-9]{11}/,
+                        message: 'Invalid phone number, use format (+355xxxxxxx,355xxxxxxx)',
+                      },
+                    }}
                   />
                 </div>
               </div>
@@ -126,8 +141,11 @@ const Home: React.FC<HomeProps> = props => {
                     label="Address"
                     name="address.street"
                     field="street"
+                    watch={props.watch}
+                    setValue={props.setValue}
+                    getValues={props.getValues}
                     placeholder="Enter address"
-                    required={true}
+                    required={'Street is required'}
                     register={props.register}
                     errors={props.errors}
                     checkbox={{
@@ -144,7 +162,7 @@ const Home: React.FC<HomeProps> = props => {
                     name="address.city"
                     field="address"
                     placeholder="Enter city name"
-                    required={true}
+                    required={'City is required'}
                     register={props.register}
                     errors={props.errors}
                   />
@@ -155,7 +173,7 @@ const Home: React.FC<HomeProps> = props => {
                     label="Zip Code"
                     name="address.zipcode"
                     placeholder="Enter zip code"
-                    required={true}
+                    required={'Zip code  is required'}
                     register={props.register}
                     errors={props.errors}
                   />
@@ -169,7 +187,7 @@ const Home: React.FC<HomeProps> = props => {
                         type="number"
                         name="address.geo.lat"
                         placeholder="Enter latitude"
-                        required={true}
+                        required={'Latitude is required'}
                         register={props.register}
                         errors={props.errors}
                       />
@@ -181,7 +199,7 @@ const Home: React.FC<HomeProps> = props => {
                         label="Longtitude"
                         name="address.geo.lng"
                         placeholder="Enter longtitude"
-                        required={true}
+                        required={'Longtitude is required'}
                         register={props.register}
                         errors={props.errors}
                       />
@@ -194,6 +212,7 @@ const Home: React.FC<HomeProps> = props => {
         </>
       </Modal>
       <Modal
+        type="message"
         btnLabel={props.isDeleteUserPending ? 'Deleting...' : 'Delete'}
         isActive={props.showDeleteModal}
         title="Delete User"

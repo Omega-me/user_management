@@ -9,9 +9,10 @@ interface ModalProps extends PropsWithChildren {
   btnLabel: string;
   isActive?: boolean;
   typeButton?: 'button' | 'submit' | 'reset' | undefined;
+  type?: 'content' | 'message';
 }
 
-const Modal: React.FC<ModalProps> = ({ typeButton = 'button', ...props }) => {
+const Modal: React.FC<ModalProps> = ({ typeButton = 'button', type = 'content', ...props }) => {
   return (
     <div
       onClick={e => {
@@ -21,7 +22,9 @@ const Modal: React.FC<ModalProps> = ({ typeButton = 'button', ...props }) => {
       }}
       id="modal"
       className={`${s.modal} ${!props.isActive && s.modal__deactivated}`}>
-      <div id="modal_container" className={`${s.modal_container} ${!props.isActive && s.modal_container__deactivated}`}>
+      <div
+        id="modal_container"
+        className={`${s.modal_container} ${!props.isActive && s.modal_container__deactivated} ${type === 'message' && s.modal_container__message}`}>
         <div className={s.modal_header}>
           <div className={s.modal_header__title}>{props.title}</div>
           <div onClick={() => props.onClose()} className={s.modal_header__close}>

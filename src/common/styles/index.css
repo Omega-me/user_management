@@ -18,3 +18,45 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+
+
+.select_autocomplete {
+    width: 100%;
+    height: 45px;
+    background: none;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    outline: none !important;
+}
+
+.select_autocomplete__control{
+    outline: none !important;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border) !important;
+    padding-left: 10px;
+}
+
+.select_autocomplete__control:focus{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.select_autocomplete__input{
+    color: var(--input-color)  !important;
+}
+
+.select_autocomplete__single-value{
+    color: var(--input-color) !important;
+}
+
+.select_autocomplete__placeholder{
+    color: var(--input-color) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.select_autocomplete__menu{
+    font-size: 14px !important;
+    color: var(--text-color) !important;
+}
+
